@@ -121,7 +121,15 @@ public class MazeSolver {
         int cols = 15;
         MazeSolver mazeSolver = new MazeSolver(rows, cols);
         mazeSolver.generateMaze();
-        mazeSolver.solveMaze();
+
+        System.out.println("Generated Maze:");
         mazeSolver.displayMaze();
+
+        if (mazeSolver.solveMaze()) {
+            System.out.println("\nSolved Maze:");
+            mazeSolver.displayMaze();
+        } else {
+            System.out.println("\nNo solution found.");
+        }
     }
 }
