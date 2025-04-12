@@ -2,7 +2,6 @@
 import java.util.Random;
 
 public class MazeSolver {
-
     private int rows;
     private int cols;
     private int[][] maze;
@@ -24,14 +23,12 @@ public class MazeSolver {
     }
 
     public void generateMaze() {
+        // Initialize maze with walls
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                maze[i][j] = 1;
+                maze[i][j] = 1; // 1 represents a wall
             }
         }
-        generateMazeRecursive(1, 1);
-        maze[startRow][startCol] = 0;
-        maze[endRow][endCol] = 0;
     }
 
     private void generateMazeRecursive(int row, int col) {
