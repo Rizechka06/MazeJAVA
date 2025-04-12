@@ -96,11 +96,32 @@ public class MazeSolver {
         return false;
     }
 
+    public void displayMaze() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (i == startRow && j == startCol){
+                    System.out.print("S");
+                } else if (i == endRow && j == endCol){
+                    System.out.print("E");
+                }
+                else if (maze[i][j] == 1) {
+                    System.out.print("#");
+                } else if (visited[i][j]) {
+                    System.out.print(".");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         int rows = 11;
         int cols = 15;
         MazeSolver mazeSolver = new MazeSolver(rows, cols);
         mazeSolver.generateMaze();
         mazeSolver.solveMaze();
+        mazeSolver.displayMaze();
     }
 }
