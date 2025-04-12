@@ -1,4 +1,4 @@
-// Commit 1: Initial MazeSolver class with basic structure
+// Commit 2: Initialize maze with walls
 import java.util.Random;
 
 public class MazeSolver {
@@ -23,9 +23,18 @@ public class MazeSolver {
         this.endCol = cols - 1;
     }
 
+    public void generateMaze() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                maze[i][j] = 1;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int rows = 11;
         int cols = 15;
         MazeSolver mazeSolver = new MazeSolver(rows, cols);
+        mazeSolver.generateMaze();
     }
 }
