@@ -143,14 +143,8 @@ public class MazeSolver {
         MazeSolver mazeSolver = new MazeSolver(rows, cols);
         mazeSolver.generateMaze();
 
-        System.out.println("Generated Maze:");
+        // Print the maze with the path
+        System.out.println("Maze with the Path:");
         mazeSolver.displayMaze();
-
-        if (mazeSolver.solveMaze()) {
-            System.out.println("\nSolved Maze:");
-            mazeSolver.displayMaze();
-        } else {
-            System.out.println("\nNo solution found.");
-        }
     }
 }
