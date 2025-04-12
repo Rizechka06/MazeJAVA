@@ -1,4 +1,4 @@
-// Commit 3: Add recursive maze generation
+
 import java.util.Random;
 
 public class MazeSolver {
@@ -69,10 +69,38 @@ public class MazeSolver {
         return row > 0 && row < rows - 1 && col > 0 && col < cols - 1;
     }
 
+    public boolean solveMaze() {
+        return solveMazeRecursive(startRow, startCol);
+    }
+
+    private boolean solveMazeRecursive(int row, int col) {
+        if (!isValid(row, col) || maze[row][col] == 1 || visited[row][col]) {
+            return false;
+        }
+        visited[row][col] = true;
+        if (row == endRow && col == endCol) {
+            return true;
+        }
+        if (solveMazeRecursive(row - 1, col)) {
+            return true;
+        }
+        if (solveMazeRecursive(row + 1, col)) {
+            return true;
+        }
+        if (solveMazeRecursive(row, col - 1)) {
+            return true;
+        }
+        if (solveMazeRecursive(row, col + 1)) {
+            return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         int rows = 11;
         int cols = 15;
         MazeSolver mazeSolver = new MazeSolver(rows, cols);
         mazeSolver.generateMaze();
+        mazeSolver.solveMaze();
     }
 }
